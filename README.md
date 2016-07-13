@@ -1,3 +1,0 @@
-# vimconf
-
-Configs for Vim
