@@ -13,10 +13,10 @@ let s:comment = "969896"
 let s:red = "d54e53"
 let s:orange = "e78c45"
 let s:yellow = "e7c547"
-let s:green = "b9ca4a"
+let s:green = "c0d59b"
 let s:aqua = "70c0b1"
-let s:blue = "7aa6da"
-let s:purple = "c397d8"
+let s:blue = "55b5db"
+let s:purple = "a074c4"
 let s:window = "4d5057"
 
 hi clear
@@ -234,7 +234,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, "", "")
-	call <SID>X("LineNr", s:selection, "", "")
+	call <SID>X("LineNr", s:green, "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:background, s:yellow, "")
@@ -267,12 +267,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Comment", s:comment, "", "")
 	call <SID>X("Todo", s:comment, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
-	call <SID>X("Identifier", s:red, "", "none")
+	call <SID>X("Identifier", "91b950", "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:purple, "", "")
-	call <SID>X("Function", s:blue, "", "")
+	call <SID>X("Function", s:purple, "", "")
 	call <SID>X("Constant", s:orange, "", "")
 	call <SID>X("Keyword", s:orange, "", "")
 	call <SID>X("String", s:green, "", "")
@@ -294,10 +294,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cRepeat", s:purple, "", "")
 
 	" PHP Highlighting
-	call <SID>X("phpVarSelector", s:red, "", "")
+	call <SID>X("phpVarSelector", "55b5db", "", "")
 	call <SID>X("phpKeyword", s:purple, "", "")
 	call <SID>X("phpRepeat", s:purple, "", "")
-	call <SID>X("phpConditional", s:purple, "", "")
+	call <SID>X("phpConditional", "55b5db", "", "")
 	call <SID>X("phpStatement", s:purple, "", "")
 	call <SID>X("phpMemberSelector", s:foreground, "", "")
 
