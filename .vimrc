@@ -5,6 +5,8 @@ colorscheme biel
 set number
 execute pathogen#infect()
 autocmd vimenter * NERDTree
+let NERDTreeShowHidden=1
+
 
 set omnifunc=htmlcomplete#CompleteTags
 
