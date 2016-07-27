@@ -1,13 +1,12 @@
 
-" Tomorrow Night Bright - Full Colour and 256 Colour
-" http://chriskempson.com
+" Biel's Theme
+" http://gabsprates.com
 "
-" Hex colour conversion functions borrowed from the theme "Desert256""
 
 " Default GUI Colours
 let s:foreground = "eaeaea"
 let s:background = "000000"
-let s:selection = "424242"
+let s:selection = "222222"
 let s:line = "2a2a2a"
 let s:comment = "969896"
 let s:red = "d54e53"
@@ -267,7 +266,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Comment", s:comment, "", "")
 	call <SID>X("Todo", s:comment, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
-	call <SID>X("Identifier", "91b950", "", "none")
+	call <SID>X("Identifier", "91ca50", "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
@@ -275,8 +274,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Function", s:purple, "", "")
 	call <SID>X("Constant", s:orange, "", "")
 	call <SID>X("Keyword", s:orange, "", "")
-	call <SID>X("String", s:green, "", "")
-	call <SID>X("Special", s:foreground, "", "")
+	call <SID>X("String", "ffcc66", "", "")
+	call <SID>X("Special", "bbcc66", "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
 	call <SID>X("Type", s:blue, "", "none")
@@ -299,7 +298,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("phpRepeat", s:purple, "", "")
 	call <SID>X("phpConditional", "55b5db", "", "")
 	call <SID>X("phpStatement", s:purple, "", "")
-	call <SID>X("phpMemberSelector", s:foreground, "", "")
+	call <SID>X("phpMemberSelector", "ffc700", "", "")
 
 	" Ruby Highlighting
 	call <SID>X("rubySymbol", s:green, "", "")
@@ -362,7 +361,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" HTML Highlighting
 	call <SID>X("htmlTag", s:red, "", "")
 	call <SID>X("htmlTagName", s:red, "", "")
-	call <SID>X("htmlArg", s:red, "", "")
+	call <SID>X("htmlArg", s:purple, "", "")
 	call <SID>X("htmlScriptTag", s:red, "", "")
 
 	" Diff Highlighting
