@@ -21,9 +21,15 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'trailing-whitespace'
+Plugin 'Command-T'
 
 
 call vundle#end()
+
+if (exists('+colorcolumn'))
+set colorcolumn=80
+endif
 
 function! PhpSyntaxOverride()
 hi! def link phpDocTags  phpDefine
