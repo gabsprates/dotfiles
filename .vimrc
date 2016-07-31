@@ -1,10 +1,10 @@
 set is
 set ic
 set hls
+set t_Co=256
 colorscheme biel
 set number
 execute pathogen#infect()
-autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 
 
@@ -23,6 +23,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/html5.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 
 call vundle#end()
