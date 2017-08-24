@@ -1,0 +1,12 @@
+[user]
+	name = Gabriel Prates
+	email = gabsprates@gmail.com
+[alias]
+	lall = log --decorate --graph --oneline
+	s = status
+	ch = checkout
+	cm = commit
+	puom = push -u origin master
+[core]
+	editor = vim
+	pager = less -F -X
