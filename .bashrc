@@ -18,7 +18,7 @@ PS1="\[\e[0;32m\]\u\[\e[0m\]@:\[\e[0;36m\]\W\[\e[0;37m\]> $ \[\e[0m\]"
 #
 # ~ $PATH
 #
-export PATH=$PATH:/home/gabriel/.npm-global/bin
+export PATH=$PATH:$HOME/.npm-global/bin
 
 # see it in /etc/bash.bashrc or /etc/profile or /etc/bash.bashrc
 if ! shopt -oq posix; then
