@@ -1,3 +1,7 @@
+# $PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.npm-global/bin:$PATH
+
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
