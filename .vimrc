@@ -15,10 +15,7 @@ let g:vim_markdown_folding_disabled = 1
 
 autocmd vimenter * NERDTree
 
-" set omnifunc=htmlcomplete#CompleteTags
-
 set nocompatible
-" filetype off
 filetype plugin indent on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -35,6 +32,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'vcscommand.vim'
 
 call vundle#end()
 
@@ -50,6 +48,15 @@ endfunction
 augroup phpSyntaxOverride
 autocmd!
 autocmd FileType php call PhpSyntaxOverride()
+autocmd FileType typescript :set makeprg=tsc
 augroup END
 
 set ai
+syntax on
+
+
+""" PERSONAL CONFIGS
+
+" Tabs
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
