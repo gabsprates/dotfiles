@@ -42,9 +42,32 @@ setup_git() {
     return $?
 }
 
+setup_curl() {
+    echo "\n# Module: curl"
+    
+    which curl > /dev/null
+
+    if [ $? -eq 0 ]
+    then
+        echo "# Installed [OK]"
+        return 0
+    fi
+
+    echo "# Installing..."
+    sudo apt-get install curl -y
+    return $?
+}
+
 # Updating SO
 update_upgrade
 
 # Setup packages
 if [ $? -eq 0 ]; then setup_build_essentials; fi
 if [ $? -eq 0 ]; then setup_git; fi
+if [ $? -eq 0 ]; then setup_curl; fi
+
+if [ -d ~/.dotfiles ] && [ $? -gt 0 ]
+then
+    echo "\n# Cloning .dotfiles"
+    git clone https://github.com/gabsprates/dotfiles.git ~/.dotfiles
+fi
