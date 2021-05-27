@@ -21,7 +21,7 @@ setup_build_essentials() {
     fi
 
     echo '# Installing...'
-    return $(sudo apt-get install build-essential)
+    return $(sudo apt-get install build-essential -y)
 }
 
 setup_git() {
@@ -36,7 +36,7 @@ setup_git() {
     fi
 
     echo '# Installing...'
-    return $(sudo apt-get install git)
+    return $(sudo apt-get install git -y)
 }
 
 # Updating SO
