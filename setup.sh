@@ -2,7 +2,7 @@
 
 update_upgrade() {
     echo '# Updating SO'
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
 }
 
 setup_build_essentials() {
@@ -21,7 +21,7 @@ setup_build_essentials() {
     fi
 
     echo '# Installing...'
-    return $(sudo apt install build-essential)
+    return $(sudo apt-get install build-essential)
 }
 
 setup_git() {
@@ -36,7 +36,7 @@ setup_git() {
     fi
 
     echo '# Installing...'
-    return $(sudo apt install git)
+    return $(sudo apt-get install git)
 }
 
 # Updating SO
