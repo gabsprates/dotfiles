@@ -95,4 +95,5 @@ else
     echo "##########################"
     echo "# Cloning .dotfiles"
     git clone https://github.com/gabsprates/dotfiles.git ~/.dotfiles
+    ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 fi
