@@ -7,7 +7,8 @@ update_upgrade() {
 }
 
 setup_build_essentials() {
-    echo "\n# Module: build-essential"
+    echo "##########################"
+    echo "# Module: build-essential"
     
     which make > /dev/null
     has_make=$?
@@ -27,7 +28,8 @@ setup_build_essentials() {
 }
 
 setup_git() {
-    echo "\n# Module: git"
+    echo "##########################"
+    echo "# Module: git"
     
     which git > /dev/null
 
@@ -43,7 +45,8 @@ setup_git() {
 }
 
 setup_curl() {
-    echo "\n# Module: curl"
+    echo "##########################"
+    echo "# Module: curl"
     
     which curl > /dev/null
 
@@ -66,8 +69,12 @@ if [ $? -eq 0 ]; then setup_build_essentials; fi
 if [ $? -eq 0 ]; then setup_git; fi
 if [ $? -eq 0 ]; then setup_curl; fi
 
-if [ -d ~/.dotfiles ] && [ $? -gt 0 ]
+# Cloning .dotfiles
+if [ -d ~/.dotfiles ]
 then
-    echo "\n# Cloning .dotfiles"
+    echo "# .dotfiles [OK]"
+else
+    echo "##########################"
+    echo "# Cloning .dotfiles"
     git clone https://github.com/gabsprates/dotfiles.git ~/.dotfiles
 fi
