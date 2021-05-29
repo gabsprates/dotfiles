@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "# Module: zsh / oh-my-zsh"
 
 which zsh > /dev/null
