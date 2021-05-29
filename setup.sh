@@ -7,7 +7,8 @@ update_upgrade() {
 }
 
 setup_build_essentials() {
-    echo "##########################"
+    echo
+    echo "=========================="
     echo "# Module: build-essential"
     
     which make > /dev/null
@@ -28,7 +29,8 @@ setup_build_essentials() {
 }
 
 setup_vim() {
-    echo "##########################"
+    echo
+    echo "=========================="
     echo "# Module: vim"
     
     which vim > /dev/null
@@ -45,7 +47,8 @@ setup_vim() {
 }
 
 setup_git() {
-    echo "##########################"
+    echo
+    echo "=========================="
     echo "# Module: git"
     
     which git > /dev/null
@@ -62,7 +65,8 @@ setup_git() {
 }
 
 setup_curl() {
-    echo "##########################"
+    echo
+    echo "=========================="
     echo "# Module: curl"
     
     which curl > /dev/null
@@ -90,10 +94,16 @@ if [ $? -eq 0 ]; then setup_curl; fi
 # Cloning .dotfiles
 if [ -d ~/.dotfiles ]
 then
+    echo
+    echo "=========================="
     echo "# .dotfiles [OK]"
 else
-    echo "##########################"
+    echo
+    echo "=========================="
     echo "# Cloning .dotfiles"
     git clone https://github.com/gabsprates/dotfiles.git ~/.dotfiles
     ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 fi
+
+echo 
+echo "# Setup done!"
