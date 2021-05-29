@@ -27,6 +27,23 @@ setup_build_essentials() {
     return $?
 }
 
+setup_vim() {
+    echo "##########################"
+    echo "# Module: vim"
+    
+    which vim > /dev/null
+
+    if [ $? -eq 0 ]
+    then
+        echo "# Installed [OK]"
+        return 0
+    fi
+
+    echo "# Installing..."
+    sudo apt-get install vim -y
+    return $?
+}
+
 setup_git() {
     echo "##########################"
     echo "# Module: git"
@@ -66,6 +83,7 @@ update_upgrade
 
 # Setup packages
 if [ $? -eq 0 ]; then setup_build_essentials; fi
+if [ $? -eq 0 ]; then setup_vim; fi
 if [ $? -eq 0 ]; then setup_git; fi
 if [ $? -eq 0 ]; then setup_curl; fi
 
