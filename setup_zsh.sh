@@ -1,4 +1,4 @@
-echo "\n# Module: zsh / oh-my-zsh"
+echo "# Module: zsh / oh-my-zsh"
 
 which zsh > /dev/null
 
