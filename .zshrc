@@ -3,7 +3,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(
@@ -16,6 +16,10 @@ source $ZSH/oh-my-zsh.sh
 # ==================
 
 # User configuration
+
+if [ -f ~/.zsh_local ]; then
+  source ~/.zsh_local
+fi
 
 # [BEGIN] Aliases
 # [END] Aliases
