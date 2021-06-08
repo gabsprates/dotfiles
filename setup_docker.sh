@@ -19,7 +19,7 @@ then
 
     echo
     echo "# Setup user..."
-    sudo groupadd docker
+    # do I need this? [sudo groupadd docker]
     sudo usermod -aG docker $USER
     newgrp docker
     docker run hello-world
