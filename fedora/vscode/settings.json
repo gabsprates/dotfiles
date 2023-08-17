@@ -1,0 +1,22 @@
+{
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "editor.lineHeight": 1.5,
+    "editor.minimap.renderCharacters": false,
+
+    "terminal.external.linuxExec": "gnome-terminal",
+    "terminal.integrated.fontFamily": "mono",
+    "terminal.integrated.tabs.enabled": false,
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": -1,
+
+    "workbench.colorTheme": "Monokai",
+    "workbench.panel.defaultLocation": "left",
+    "workbench.sideBar.location": "right"
+}
