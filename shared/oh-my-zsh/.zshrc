@@ -22,6 +22,7 @@ if [ -f ~/.zsh_local ]; then
 fi
 
 ## [BEGIN] Aliases
+alias ll='ls -lah'
 ## [END] Aliases
 
 ## [BEGIN] PATH
