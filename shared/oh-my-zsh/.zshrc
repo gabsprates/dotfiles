@@ -2,10 +2,10 @@
 
 export ZSH=$HOME/.oh-my-zsh
 
-# Theme
+## Theme
 ZSH_THEME="robbyrussell"
 
-# Plugins
+## Plugins
 plugins=(
   git
   docker
@@ -15,14 +15,14 @@ source $ZSH/oh-my-zsh.sh
 
 # ==================
 
-# User configuration
+## Machine extra configuration
 
 if [ -f ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
 
-# [BEGIN] Aliases
-# [END] Aliases
+## [BEGIN] Aliases
+## [END] Aliases
 
-# [BEGIN] PATH
-# [END] PATH
+## [BEGIN] PATH
+## [END] PATH
