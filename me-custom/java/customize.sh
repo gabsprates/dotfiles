@@ -1,16 +1,13 @@
 #!/bin/bash
 
-cd $(dirname "${0}")
+cd "$(dirname "$0")" || exit
 
-source ../../common.sh
+source ../../global-vars.sh
 
-function install_jabba {
-    echo "Installing Jabba"
-
+apply_settings() {
     curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash -s -- --skip-rc && . /home/me/.jabba/jabba.sh
 
-    # TODO: make it replace some tag to prevent duplication
-    cat ${DOTFILES_BASE_PATH}/shared/java/jabba >> /home/me/.zsh_local
+    sed -i -e "/#jabba/r $DOTFILES_BASE_PATH/me-custom/java/jabba" -e '/#jabba/d' /home/me/.zsh_local
 
     jabba install 6=tgz+https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-linux_x64.tar.gz
     jabba install 7=tgz+https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-linux_x64.tar.gz
@@ -19,10 +16,6 @@ function install_jabba {
     jabba install 17=tgz+https://cdn.azul.com/zulu/bin/zulu17.44.17-ca-crac-jdk17.0.8-linux_x64.tar.gz
 
     jabba alias default 8
-
-    echo "Done!"
 }
 
-install_jabba
-
-
+apply_settings
