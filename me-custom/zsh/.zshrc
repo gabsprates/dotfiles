@@ -7,8 +7,8 @@ ZSH_THEME="robbyrussell"
 
 ## Plugins
 plugins=(
-  git
-  docker
+    git
+    docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 ## Machine extra configuration
 
 if [ -f ~/.zsh_local ]; then
-  source ~/.zsh_local
+    source ~/.zsh_local
 fi
 
 ## [BEGIN] Aliases
