@@ -18,5 +18,9 @@
 
     "workbench.colorTheme": "Monokai",
     "workbench.panel.defaultLocation": "left",
-    "workbench.sideBar.location": "right"
+    "workbench.sideBar.location": "right",
+
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    }
 }
