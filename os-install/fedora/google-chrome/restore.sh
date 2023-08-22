@@ -5,9 +5,11 @@ cd "$(dirname "$0")" || exit
 source ../../../common.sh
 
 install() {
-    add_flathub_remote_if_needed
+    dnf install -qy fedora-workstation-repositories
 
-    flatpak install -y flathub com.google.Chrome
+    dnf config-manager --set-enabled google-chrome
+
+    dnf install -qy google-chrome-stable
 }
 
 install
