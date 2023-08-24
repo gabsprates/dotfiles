@@ -1,0 +1,5 @@
+
+## Jabba, Maven
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
+[ -s "$HOME/.maven/maven" ] && export PATH="$PATH:$HOME/.maven/maven/bin"
+

@@ -7,7 +7,7 @@ source ../../global-vars.sh
 apply_settings() {
     curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash -s -- --skip-rc && . /home/me/.jabba/jabba.sh
 
-    sed -i -e "/#jabba/r $DOTFILES_BASE_PATH/me-custom/java/jabba" -e '/#jabba/d' /home/me/.zsh_local
+    sed -i -e "/#java_profile/r $DOTFILES_BASE_PATH/me-custom/java/profile" -e '/#java_profile/d' /home/me/.zsh_local
 
     jabba install 6=tgz+https://cdn.azul.com/zulu/bin/zulu6.22.0.3-jdk6.0.119-linux_x64.tar.gz
     jabba install 7=tgz+https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-linux_x64.tar.gz
@@ -18,4 +18,20 @@ apply_settings() {
     jabba alias default 8
 }
 
+install_maven() {
+    maven_version=3.9.4
+    maven_path=/home/me/.maven
+    zip_file=apache-maven-${maven_version}-bin.zip
+
+    rm -fr $maven_path
+    mkdir $maven_path
+
+    wget -O "$maven_path"/"$zip_file" https://archive.apache.org/dist/maven/maven-3/${maven_version}/binaries/${zip_file}
+
+    unzip -q "$maven_path"/"$zip_file" -d $maven_path
+
+    ln -s "$maven_path"/apache-maven-${maven_version} "$maven_path"/maven
+}
+
 apply_settings
+install_maven
