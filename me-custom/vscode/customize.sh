@@ -12,6 +12,7 @@ install_extensions() {
         eamodio.gitlens
         timonwong.shellcheck
         foxundermoon.shell-format
+        vscjava.vscode-java-pack
     )
 
     for extension in "${extensions[@]}"; do

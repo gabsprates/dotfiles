@@ -20,7 +20,6 @@
     "workbench.panel.defaultLocation": "left",
     "workbench.sideBar.location": "right",
 
-    "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
-    }
+    "[java]": { "editor.defaultFormatter": "redhat.java" },
+    "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" }
 }
