@@ -7,6 +7,9 @@
     "editor.lineHeight": 1.5,
     "editor.minimap.renderCharacters": false,
 
+    "polacode.transparentBackground": true,
+    "polacode.target": "snippet",
+
     "terminal.external.linuxExec": "gnome-terminal",
     "terminal.integrated.fontFamily": "mono",
     "terminal.integrated.tabs.enabled": false,

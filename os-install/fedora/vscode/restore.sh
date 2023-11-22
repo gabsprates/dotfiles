@@ -13,9 +13,11 @@ install() {
         return 0
     fi
 
-    ln -s "$DOTFILES_BASE_PATH"/fedora/vscode/vscode.repo /etc/yum.repos.d/vscode.repo
-
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+    cp "$DOTFILES_BASE_PATH"/os-install/fedora/vscode/vscode.repo /etc/yum.repos.d/vscode.repo
+
+    dnf check-update
 
     dnf -qy install code
 }

@@ -13,6 +13,7 @@ install_extensions() {
         timonwong.shellcheck
         foxundermoon.shell-format
         vscjava.vscode-java-pack
+        pnp.polacode
     )
 
     for extension in "${extensions[@]}"; do
