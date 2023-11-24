@@ -7,12 +7,14 @@ source ../../global-vars.sh
 setup_packages() {
     all_packages=(
         1password
+        git
+        zsh
         asdf
+
         brave
         docker
         edge
         gimp
-        git
         google-chrome
         htop
         inkscape
@@ -21,7 +23,6 @@ setup_packages() {
         slack
         # ssh
         vscode
-        zsh
 
         # Additional packages
     )
