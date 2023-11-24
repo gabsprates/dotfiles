@@ -7,6 +7,7 @@ ZSH_THEME="robbyrussell"
 
 ## Plugins
 plugins=(
+    asdf
     git
     docker
 )

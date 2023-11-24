@@ -7,6 +7,7 @@ source ../../global-vars.sh
 setup_packages() {
     all_packages=(
         1password
+        asdf
         brave
         docker
         edge
