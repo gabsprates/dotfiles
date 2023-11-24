@@ -7,7 +7,6 @@ source ../../global-vars.sh
 setup_packages() {
     all_packages=(
         1password
-        # anydesk
         brave
         docker
         edge
