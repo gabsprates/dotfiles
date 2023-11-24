@@ -1,4 +1,4 @@
 
 ## Java
-[ -s "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && source .asdf/plugins/java/set-java-home.zsh
+[ -s "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && source "$HOME/.asdf/plugins/java/set-java-home.zsh"
 
