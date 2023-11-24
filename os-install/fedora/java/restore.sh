@@ -7,7 +7,7 @@ source ../../../common.sh
 
 install() {
     echo ""
-    echo "Java should will be installed by Jabba Version Manager"
+    echo "Java should will be installed by asdf"
     echo ""
 }
 
