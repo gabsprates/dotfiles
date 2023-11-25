@@ -7,7 +7,7 @@ source ../../../common.sh
 
 install() {
     echo ""
-    echo "Java should will be installed by asdf"
+    echo "Java will be installed by asdf"
     echo ""
 }
 

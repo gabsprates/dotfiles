@@ -7,7 +7,7 @@ source ../../../common.sh
 
 install() {
     echo ""
-    echo "Java should will be installed by NVM"
+    echo "Node.js will be installed by asdf"
     echo ""
 }
 
