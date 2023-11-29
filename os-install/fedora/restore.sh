@@ -24,6 +24,8 @@ setup_packages() {
         # ssh
         vscode
 
+        ui
+
         # Additional packages
     )
 
