@@ -7,6 +7,10 @@ update_os() {
     fedora)
         sudo dnf upgrade -y
         ;;
+
+    ubuntu)
+        sudo apt update -y && sudo apt upgrade -y
+        ;;
     esac
 
     return $?
@@ -18,6 +22,10 @@ install_dependencies() {
     case "$1" in
     fedora)
         sudo dnf install curl git vim -y
+        ;;
+
+    ubuntu)
+        sudo apt install -y curl git vim
         ;;
     esac
 
