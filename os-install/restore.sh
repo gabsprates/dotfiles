@@ -2,9 +2,11 @@
 
 cd "$(dirname "$0")" || exit
 
-source ../../global-vars.sh
+source ../global-vars.sh
 
 setup_packages() {
+    os="$(. /etc/os-release && echo "$ID")"
+
     all_packages=(
         1password
         git
@@ -31,6 +33,7 @@ setup_packages() {
 
     packages_to_restore=("${@:-${all_packages[@]}}")
 
+    echo "${os}"
     echo "${packages_to_restore[@]}"
 
     for package in "${packages_to_restore[@]}"; do
@@ -40,8 +43,8 @@ setup_packages() {
         echo ""
         echo "Restoring: [ ${package} ]"
 
-        if [ -e ./"$package"/restore.sh ]; then
-            sh ./"$package"/restore.sh
+        if [ -e ./"$os"/"$package"/restore.sh ]; then
+            sh ./"$os"/"$package"/restore.sh
             status="DONE"
         else
             status="SKIPED"
