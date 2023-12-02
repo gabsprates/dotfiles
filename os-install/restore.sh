@@ -27,6 +27,7 @@ setup_packages() {
         terminator
         vscode
 
+        gnome
         ui
 
         # Additional packages
