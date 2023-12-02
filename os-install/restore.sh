@@ -24,6 +24,7 @@ setup_packages() {
         javascript
         slack
         # ssh
+        terminator
         vscode
 
         ui
