@@ -1,10 +1,29 @@
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
 [org/gnome/desktop/input-sources]
 current=uint32 0
 sources=[('xkb', 'br'), ('xkb', 'us+intl')]
-xkb-options=@as []
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+
+[org/gnome/desktop/notifications]
+show-in-lock-screen=false
+
+[org/gnome/desktop/peripherals/touchpad]
+natural-scroll=false
+tap-to-click=true
+two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/privacy]
 report-technical-problems=false
+
+[org/gnome/desktop/wm/keybindings]
+switch-applications=@as []
+switch-applications-backward=@as []
+switch-windows=['<Alt>Tab']
+switch-windows-backward=['<Shift><Alt>Tab']
 
 [org/gnome/nautilus/list-view]
 default-zoom-level='small'
@@ -14,6 +33,21 @@ use-tree-view=true
 default-folder-viewer='list-view'
 migrated-gtk-settings=true
 search-filter-time-type='last_modified'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-temperature=uint32 3194
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Shift><Control>l'
+command='/home/me/.dotfiles/scripts/toggle_mouse_hand.sh'
+name='Toggle Mouse Hand'
+
+[org/gnome/shell/app-switcher]
+current-workspace-only=true
 
 [org/gnome/shell/world-clocks]
 locations=@av []
