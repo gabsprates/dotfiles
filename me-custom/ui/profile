@@ -1,3 +1,6 @@
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
 [org/gnome/desktop/datetime]
 automatic-timezone=true
 
@@ -6,7 +9,12 @@ current=uint32 0
 sources=[('xkb', 'br'), ('xkb', 'us+intl')]
 
 [org/gnome/desktop/interface]
+clock-show-seconds=true
+clock-show-weekday=true
 color-scheme='prefer-dark'
+gtk-enable-primary-paste=true
+locate-pointer=true
+show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
 show-in-lock-screen=false
