@@ -14,7 +14,7 @@ setup_packages() {
         asdf
 
         brave
-        docker
+        #docker
         edge
         gimp
         google-chrome
