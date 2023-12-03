@@ -19,15 +19,13 @@ install() {
     dnf -qy install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     systemctl start docker
+    systemctl enable docker
 
-    groupadd docker
+    gpasswd -a me docker
 
-    usermod -aG docker me
+    systemctl restart docker
 
     run_as_me newgrp docker
-
-    systemctl enable docker.service
-    systemctl enable containerd.service
 }
 
 install
