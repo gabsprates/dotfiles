@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 update_os() {
     echo "# Updating SO"
@@ -50,10 +50,10 @@ main() {
     echo "# Setting up: $os"
     echo
 
-    update_os $os
+    update_os "$os"
 
-    if [ $? -eq 0 ]; then install_dependencies $os; fi
-    if [ $? -eq 0 ]; then clone_repo $os; fi
+    if [ $? -eq 0 ]; then install_dependencies "$os"; fi
+    if [ $? -eq 0 ]; then clone_repo "$os"; fi
 
     echo
     echo "# Setup preparation done!"
