@@ -1,5 +1,5 @@
 {
-    "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+    "editor.codeActionsOnSave": { "source.fixAll": true },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 15,
@@ -7,11 +7,12 @@
     "editor.lineHeight": 1.5,
     "editor.minimap.renderCharacters": false,
 
-    "polacode.transparentBackground": true,
     "polacode.target": "snippet",
+    "polacode.transparentBackground": true,
 
     "terminal.external.linuxExec": "gnome-terminal",
     "terminal.integrated.fontFamily": "mono",
+    "terminal.integrated.scrollback": 10000,
     "terminal.integrated.tabs.enabled": false,
 
     "typescript.tsdk": "node_modules/typescript/lib",
@@ -24,5 +25,7 @@
     "workbench.sideBar.location": "right",
 
     "[java]": { "editor.defaultFormatter": "redhat.java" },
-    "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" }
+    "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+    "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+    "files.associations": { "*.ftl": "html" }
 }

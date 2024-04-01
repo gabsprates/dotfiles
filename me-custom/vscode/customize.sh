@@ -22,6 +22,7 @@ install_extensions() {
 }
 
 apply_settings() {
+    # settings
     config_file=/home/me/.config/Code/User/settings.json
 
     if [ -e $config_file ]; then
@@ -29,6 +30,15 @@ apply_settings() {
     fi
 
     ln -s "$DOTFILES_BASE_PATH"/me-custom/vscode/settings.json $config_file
+
+    # shortcuts
+    shortcuts_file=/home/me/.config/Code/User/keybindings.json
+
+    if [ -e $shortcuts_file ]; then
+        rm $shortcuts_file
+    fi
+
+    ln -s "$DOTFILES_BASE_PATH"/me-custom/vscode/settings.json $shortcuts_file
 }
 
 install_extensions
