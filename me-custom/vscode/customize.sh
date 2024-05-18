@@ -38,7 +38,7 @@ apply_settings() {
         rm $shortcuts_file
     fi
 
-    ln -s "$DOTFILES_BASE_PATH"/me-custom/vscode/settings.json $shortcuts_file
+    ln -s "$DOTFILES_BASE_PATH"/me-custom/vscode/shortcuts.json $shortcuts_file
 }
 
 install_extensions
