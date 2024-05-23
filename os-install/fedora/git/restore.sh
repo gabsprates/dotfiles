@@ -13,6 +13,7 @@ install() {
     fi
 
     dnf -qy install git lazygit
+    yum -qy install git-lfs
 }
 
 apply_user_settings() {

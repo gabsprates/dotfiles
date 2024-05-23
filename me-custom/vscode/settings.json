@@ -1,11 +1,14 @@
 {
-    "editor.codeActionsOnSave": { "source.fixAll": true },
+    "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 15,
     "editor.formatOnSave": true,
     "editor.lineHeight": 1.5,
     "editor.minimap.renderCharacters": false,
+    "editor.stickyScroll.enabled": false,
+
+    "files.associations": { "*.ftl": "html" },
 
     "polacode.target": "snippet",
     "polacode.transparentBackground": true,
@@ -26,6 +29,5 @@
 
     "[java]": { "editor.defaultFormatter": "redhat.java" },
     "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-    "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
-    "files.associations": { "*.ftl": "html" }
+    "[html]": { "editor.defaultFormatter": "vscode.html-language-features" }
 }
