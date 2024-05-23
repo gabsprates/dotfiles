@@ -80,12 +80,17 @@ night-light-enabled=true
 night-light-temperature=uint32 3194
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Shift><Control>l'
 command='/home/me/.dotfiles/scripts/toggle_mouse_hand.sh'
 name='Toggle Mouse Hand'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='Print'
+command='flameshot gui'
+name='Flameshot'
 
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='nothing'
@@ -95,6 +100,9 @@ favorite-apps=['terminator.desktop', 'google-chrome.desktop', 'org.gnome.Nautilu
 
 [org/gnome/shell/app-switcher]
 current-workspace-only=true
+
+[org/gnome/shell/keybindings]
+show-screenshot-ui=@as []
 
 [org/gnome/shell/world-clocks]
 locations=[<(uint32 2, <('Los Angeles', 'KCQT', true, [(0.59370283970450188, -2.0644336110828618)], [(0.59432360095955872, -2.063741622941031)])>)>, <(uint32 2, <('Chicago', 'KMDW', true, [(0.72927128935316143, -1.5316185371029443)], [(0.73042086791828009, -1.529781996944241)])>)>, <(uint32 2, <('Recife', 'SBRF', true, [(-0.14078989881197343, -0.60824724432002386)], [(-0.14049900478554353, -0.60911990894602097)])>)>, <(uint32 2, <('Rabat', 'GMME', true, [(0.59428461030406909, -0.11810061853604713)], [(0.59376101152847094, -0.11920598791121272)])>)>, <(uint32 2, <('Dublin', 'EIDW', false, [(0.93258759116453926, -0.1090830782496456)], [(0.93258759116453926, -0.1090830782496456)])>)>, <(uint32 2, <('Berlin', 'EDDT', true, [(0.91746141594945008, 0.23241968454167572)], [(0.91658875132345297, 0.23387411976724018)])>)>, <(uint32 2, <('London', 'EGWU', true, [(0.89971722940307675, -0.007272211034407213)], [(0.89884456477707964, -0.0020362232784242244)])>)>, <(uint32 2, <('Madrid', 'LEVS', true, [(0.7045991230607519, -0.066060712187985385)], [(0.70511301780570912, -0.0642862882973603)])>)>, <(uint32 2, <('Dubai', 'OMDB', true, [(0.44069563612856821, 0.96574884695243146)], [(0.44073441734454749, 0.9648180105024653)])>)>, <(uint32 2, <('Bangalore', 'VOBG', true, [(0.22601989378717041, 1.3555659188172149)], [(0.22631101470640302, 1.3537937114947398)])>)>, <(uint32 2, <('Fuji', 'RJAT', true, [(0.6163921199804282, 2.4236805604205567)], [(0.61377412610243665, 2.4204807784897051)])>)>]

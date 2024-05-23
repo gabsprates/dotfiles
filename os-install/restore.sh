@@ -15,6 +15,7 @@ setup_packages() {
 
         brave
         #docker
+        flameshot
         edge
         gimp
         google-chrome
