@@ -89,7 +89,7 @@ name='Toggle Mouse Hand'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='Print'
-command='flameshot gui'
+command='/home/me/.dotfiles/scripts/flameshot.sh'
 name='Flameshot'
 
 [org/gnome/settings-daemon/plugins/power]
