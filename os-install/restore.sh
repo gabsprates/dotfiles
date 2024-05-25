@@ -8,13 +8,13 @@ setup_packages() {
     os="$(. /etc/os-release && echo "$ID")"
 
     all_packages=(
-        1password
+        # 1password
         git
         zsh
         asdf
 
         brave
-        #docker
+        # docker
         flameshot
         edge
         gimp
