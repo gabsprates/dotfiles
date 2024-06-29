@@ -16,6 +16,8 @@ install() {
 
     rpm --import https://downloads.1password.com/linux/keys/1password.asc
 
+    dnf check-update -y 1password 1password-cli
+
     dnf -qy install 1password 1password-cli
 }
 
