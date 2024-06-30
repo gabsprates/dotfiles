@@ -1,20 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
 cd "$(dirname "$0")" || exit
 
-source ../global-vars.sh
+. ../global-vars.sh
 
 setup_packages() {
     os="$(. /etc/os-release && echo "$ID")"
 
-    all_packages=(
+    packages_to_restore='
         1password
         git
         zsh
         asdf
 
         brave
-        # docker
         flameshot
         edge
         gimp
@@ -24,44 +23,50 @@ setup_packages() {
         java
         javascript
         slack
-        # ssh
         terminator
         vscode
 
         gnome
         ui
+    '
 
-        # Additional packages
-    )
+    if [ $# -gt 0 ]; then
+        packages_to_restore=$(printf '%s\n' "$@")
+    fi
 
-    packages_to_restore=("${@:-${all_packages[@]}}")
+    echo "> Current OS: ${os}"
+    echo "${packages_to_restore}"
 
-    echo "${os}"
-    echo "${packages_to_restore[@]}"
+    printf '%s\n' "$packages_to_restore" |
+        while IFS='' read -r ppackage; do
+            package=$(echo "$ppackage" | sed -e 's/^[[:space:]]*//')
 
-    for package in "${packages_to_restore[@]}"; do
-        status=""
-        extra_info=""
+            if [ "$package" = '' ]; then
+                continue
+            fi
 
-        echo ""
-        echo "Restoring: [ ${package} ]"
+            status=""
+            extra_info=""
 
-        if [ -e ./"$os"/"$package"/restore.sh ]; then
-            sh ./"$os"/"$package"/restore.sh
-            status="DONE"
-        else
-            status="SKIPED"
-            extra_info="Package not found"
-        fi
+            echo ""
+            echo "Restoring: [ ${package} ]"
 
-        echo "Restored status: ${status}"
+            if [ -e ./"$os"/"$package"/restore.sh ]; then
+                sh ./"$os"/"$package"/restore.sh
+                status="DONE"
+            else
+                status="SKIPED"
+                extra_info="Package not found"
+            fi
 
-        if [ "$extra_info" ]; then
-            echo "      @> $extra_info"
-        fi
+            echo "Restored status: ${status}"
 
-        echo ""
-    done
+            if [ "$extra_info" ]; then
+                echo "      @> $extra_info"
+            fi
+
+            echo ""
+        done
 }
 
 setup_packages "$@"
