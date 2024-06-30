@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 cd "$(dirname "$0")" || exit
 
-source ../../global-vars.sh
+. ../../global-vars.sh
 
 apply_settings() {
     config_file=/home/me/.gitconfig

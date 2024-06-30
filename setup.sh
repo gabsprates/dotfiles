@@ -25,7 +25,7 @@ install_dependencies() {
         ;;
 
     ubuntu)
-        sudo apt install -y curl git vim
+        sudo apt-get install -y curl git vim
         ;;
     esac
 
