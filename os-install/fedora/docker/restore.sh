@@ -24,8 +24,6 @@ install() {
     gpasswd -a me docker
 
     systemctl restart docker
-
-    run_as_me newgrp docker
 }
 
 install
