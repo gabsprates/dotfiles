@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")" || exit
 
-source ../../global-vars.sh
+. ../../global-vars.sh
 
 apply_settings() {
     if [ -d /home/me/.asdf ]; then
