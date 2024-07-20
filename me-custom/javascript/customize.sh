@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 cd "$(dirname "$0")" || exit
 
-source ../../global-vars.sh
-source /home/me/.asdf/asdf.sh
+. ../../global-vars.sh
+
+ASDF_DIR="/home/me/.asdf"
+. /home/me/.asdf/asdf.sh
 
 apply_settings() {
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
