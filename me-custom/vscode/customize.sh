@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 cd "$(dirname "$0")" || exit
 
-source ../../global-vars.sh
+. ../../global-vars.sh
 
 install_extensions() {
-    extensions=(
+    extensions='
         dbaeumer.vscode-eslint
         esbenp.prettier-vscode
         EditorConfig.EditorConfig
@@ -14,11 +14,18 @@ install_extensions() {
         foxundermoon.shell-format
         vscjava.vscode-java-pack
         pnp.polacode
-    )
+    '
 
-    for extension in "${extensions[@]}"; do
-        code --install-extension "${extension}"
-    done
+    printf '%s\n' "$extensions" |
+        while IFS='' read -r e_extension; do
+            extension=$(echo "$e_extension" | sed -e 's/^[[:space:]]*//')
+
+            if [ "$extension" = '' ]; then
+                continue
+            fi
+
+            code --install-extension "${extension}"
+        done
 }
 
 apply_settings() {
