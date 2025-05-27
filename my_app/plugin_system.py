@@ -14,8 +14,8 @@ class Plugin:
 
 
 class PluginManager:
-    def __init__(self, plugin_dir):
-        self.plugin_dir = plugin_dir
+    def __init__(self, plugin_dir: str, os_id: str):
+        self.plugin_dir = plugin_dir + "/" + os_id
         self.plugins = []
 
     def load_plugins(self):
