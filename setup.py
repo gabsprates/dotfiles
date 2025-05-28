@@ -15,20 +15,22 @@ def update_os(os_id: str):
 
     os_update = {
         'fedora': [
-            'sudo', 'dnf', 'upgrade', '-y'
+            ['sudo', 'dnf', 'upgrade', '-y'],
         ],
 
         'ubuntu': [
-            'sudo', 'apt', 'update', '-y',
-            '&&', 'sudo', 'apt', 'upgrade', '-y'
+            ['sudo', 'apt', 'update', '-y'],
+            ['sudo', 'apt', 'upgrade', '-y']
         ],
     }
 
-    update_command = os_update[os_id]
-    update_result = subprocess.run(update_command)
+    update_commands = os_update[os_id]
 
-    if update_result.returncode != 0:
-        raise RuntimeError()
+    for command in update_commands:
+        update_result = subprocess.run(command)
+
+        if update_result.returncode != 0:
+            raise RuntimeError()
 
 
 def install_dependencies(os_id: str):
