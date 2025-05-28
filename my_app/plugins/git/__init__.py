@@ -1,7 +1,7 @@
 import importlib
 import os
 import sys
-from app_system import AppInstaller
+from app_system import AppInstaller, run_as_me
 
 
 class GitInstaller(AppInstaller):
@@ -21,4 +21,6 @@ class GitInstaller(AppInstaller):
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
 
-        os.symlink(os.path.join(base_dir, '.gitconfig'), config_file)
+        run_as_me([
+            'ln', '-s', os.path.join(base_dir, '.gitconfig'), config_file
+        ])
