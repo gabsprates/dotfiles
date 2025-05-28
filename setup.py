@@ -38,11 +38,11 @@ def install_dependencies(os_id: str):
 
     os_install_dependencies = {
         'fedora': [
-            'sudo', 'dnf', 'install', '-y', 'curl', 'git', 'vim'
+            'sudo', 'dnf', 'install', '-y', 'curl', 'git', 'vim', 'tree'
         ],
 
         'ubuntu': [
-            'sudo', 'apt', 'install', '-y', 'curl', 'git', 'vim'
+            'sudo', 'apt', 'install', '-y', 'curl', 'git', 'vim', 'tree'
         ]
     }
 
