@@ -1,17 +1,63 @@
 #!/bin/env python3
 
 import os
+import sys
 import distro
-from plugin_system import PluginManager
+from app_system import AppManager
+
+
+def get_default_apps():
+    return [
+        'git',
+        'zsh',
+        'docker',
+        'htop',
+        'openvpn3',
+        'telnet',
+        'terminator',
+
+        'asdf',
+        'javascript',
+        'java',
+        'vscode',
+
+        'brave',
+        'google-chrome',
+        'gimp',
+        'gnome'
+        'inkscape',
+        'flameshot',
+    ]
+
 
 if __name__ == "__main__":
+    apps = sys.argv[1:]
     base_path = os.path.dirname(__file__)
 
-    plugin_manager = PluginManager(
-        plugin_dir=base_path + "/plugins",
+    app_manager = AppManager(
+        plugin_dir=os.path.join(base_path, "plugins"),
         os_id=distro.id(),
+        apps=apps
     )
 
-    plugin_manager.load_plugins()
-    plugin_manager.initialize_plugins()
-    plugin_manager.execute_plugins()
+    app_manager.install_apps()
+
+# 'zsh',              # general
+# 'asdf',             # general
+# 'docker',           # general
+# 'htop',             # general
+# 'openvpn3',         # general
+# 'telnet',           # general
+# 'terminator',       # general
+
+# 'vscode',           # general
+# 'javascript',       # general
+# 'java',             # general
+# 'maven, ant',       # general (depends on java)
+
+# 'brave',            # general
+# 'google-chrome',    # general
+# 'gimp',             # general
+# 'gnome'             # general
+# 'inkscape',         # general
+# 'flameshot',        # general
