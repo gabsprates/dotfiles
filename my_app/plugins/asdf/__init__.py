@@ -30,7 +30,7 @@ class AsdfInstaller(AppInstaller):
 
     def get_asdf_linux_package_url(self, data):
         for asset in data['assets']:
-            if asset['browser_download_url'].endswith("-linux-arm64.tar.gz"):
+            if asset['browser_download_url'].endswith("-linux-386.tar.gz"):
                 return asset['browser_download_url']
 
     def download_asdf_linux_package(self, url: str, dest: str):
