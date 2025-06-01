@@ -25,7 +25,6 @@ class AsdfInstaller(AppInstaller):
         self.install_asdf(asdf_tmp)
 
     def customize(self):
-        print("asdfasdfasfasdfasdfa")
         pass
 
     def get_asdf_linux_package_url(self, data):

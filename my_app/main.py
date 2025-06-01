@@ -41,11 +41,6 @@ if __name__ == "__main__":
     app_manager.install_apps()
 
 # 'zsh',              # general
-# 'asdf',             # general
-# 'docker',           # general
-# 'htop',             # general
-# 'openvpn3',         # general
-# 'telnet',           # general
 # 'terminator',       # general
 
 # 'vscode',           # general
