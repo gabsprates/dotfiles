@@ -1,11 +1,8 @@
 # __init__.py is left empty
 
 print("TODO: To be installed:", [
-    'git',              # general
-    'git lsf',          # general (depends on git)
     'zsh',              # general
     'asdf',             # general
-    'docker',           # general
     'htop',             # general
     'openvpn3',         # general
     'telnet',           # general

@@ -9,7 +9,6 @@ from app_system import AppManager
 def get_default_apps():
     return [
         'git',
-        'zsh',
         'docker',
         'htop',
         'openvpn3',
@@ -20,6 +19,8 @@ def get_default_apps():
         'javascript',
         'java',
         'vscode',
+
+        'zsh',
 
         'brave',
         'google-chrome',
