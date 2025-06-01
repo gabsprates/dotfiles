@@ -10,10 +10,6 @@ def get_default_apps():
     return [
         'git',
         'docker',
-        'htop',
-        'openvpn3',
-        'telnet',
-        'terminator',
 
         'asdf',
         'javascript',
@@ -21,6 +17,7 @@ def get_default_apps():
         'vscode',
 
         'zsh',
+        'terminator',
 
         'brave',
         'google-chrome',

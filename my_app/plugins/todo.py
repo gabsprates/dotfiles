@@ -2,10 +2,6 @@
 
 print("TODO: To be installed:", [
     'zsh',              # general
-    'asdf',             # general
-    'htop',             # general
-    'openvpn3',         # general
-    'telnet',           # general
     'terminator',       # general
 
     'vscode',           # general
