@@ -10,14 +10,13 @@ def get_default_apps():
     return [
         'git',
         'docker',
-
         'asdf',
+        'zsh',
+        'terminator',
+
         'javascript',
         'java',
         'vscode',
-
-        'zsh',
-        'terminator',
 
         'brave',
         'google-chrome',
