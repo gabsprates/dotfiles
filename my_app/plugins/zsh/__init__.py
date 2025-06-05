@@ -3,6 +3,7 @@ import subprocess
 import shutil
 from pathlib import Path
 import tempfile
+import stat
 
 import urllib.request
 from app_system import AppInstaller, run_as_me
@@ -55,7 +56,8 @@ class ZshInstaller(AppInstaller):
         env["RUNZSH"] = "no"
         env["KEEP_ZSHRC"] = "yes"
 
-        subprocess.run(['sh', tmp_script], env=env, shell=True)
+        os.chmod(tmp_script, stat.S_IXOTH)
+        subprocess.run([tmp_script], env=env, shell=True)
         subprocess.run(['chown', '-R', "me:me", str(omz_path)])
         subprocess.run(['usermod', '--shell', '/usr/bin/zsh', 'me'])
 
