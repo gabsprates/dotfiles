@@ -8,15 +8,12 @@ class TerminatorInstaller(AppInstaller):
         self.plugin_path = Path(__file__).parent.resolve()
 
     def install(self):
-        run_as_me([
-            'asdf', 'plugin', 'add', 'nodejs', 'https://github.com/asdf-vm/asdf-nodejs.git'
-        ])
-        run_as_me([
-            'asdf', 'install', 'nodejs', 'latest:22'
-        ])
-        run_as_me([
-            'asdf', 'set', '-u', 'nodejs', 'latest:22'
-        ])
+        print("Not possible to install as `me` user. Run the following commands to install it:")
+        print('asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git')
+        print('asdf install nodejs latest:22')
+        print('asdf set -u nodejs latest:22')
+        print('\n')
+        print("For more info about corepack, check https://github.com/asdf-vm/asdf-nodejs?tab=readme-ov-file#corepack")
 
     def customize(self):
         pass
