@@ -1,11 +1,11 @@
 import os
 import subprocess
 import shutil
-from pathlib import Path
 import tempfile
 import stat
-
 import urllib.request
+
+from pathlib import Path
 from app_system import AppInstaller, run_as_me
 
 

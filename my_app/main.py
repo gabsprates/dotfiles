@@ -39,9 +39,6 @@ if __name__ == "__main__":
 
     app_manager.install_apps()
 
-# 'zsh',              # general
-# 'terminator',       # general
-
 # 'vscode',           # general
 # 'javascript',       # general
 # 'java',             # general
