@@ -12,10 +12,10 @@ class TerminatorInstaller(AppInstaller):
             'asdf', 'plugin', 'add', 'nodejs', 'https://github.com/asdf-vm/asdf-nodejs.git'
         ])
         run_as_me([
-            'asdf', 'install', 'nodejs', '22.16'
+            'asdf', 'install', 'nodejs', 'latest:22'
         ])
         run_as_me([
-            'asdf', 'global', 'nodejs', '22.16'
+            'asdf', 'global', 'nodejs', 'latest:22'
         ])
 
     def customize(self):
