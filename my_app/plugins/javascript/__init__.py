@@ -15,7 +15,7 @@ class TerminatorInstaller(AppInstaller):
             'asdf', 'install', 'nodejs', 'latest:22'
         ])
         run_as_me([
-            'asdf', 'global', 'nodejs', 'latest:22'
+            'asdf', 'set', '-u', 'nodejs', 'latest:22'
         ])
 
     def customize(self):
