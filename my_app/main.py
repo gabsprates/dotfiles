@@ -40,8 +40,6 @@ if __name__ == "__main__":
     app_manager.install_apps()
 
 # 'vscode',           # general
-# 'javascript',       # general
-# 'java',             # general
 # 'maven, ant',       # general (depends on java)
 
 # 'brave',            # general

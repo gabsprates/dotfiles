@@ -23,7 +23,7 @@
     "window.titleBarStyle": "custom",
     "window.zoomLevel": -1,
 
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.panel.defaultLocation": "left",
     "workbench.sideBar.location": "right",
     "workbench.tree.indent": 16,
