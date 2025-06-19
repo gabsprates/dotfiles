@@ -65,7 +65,8 @@ class VSCodeInstaller(AppInstaller):
         ]
 
         for extension in extensions:
-            subprocess.run(["code", "--install-extension", extension])
+            subprocess.run(["code", "--no-sandbox", "--user-data-dir", "/home/me/.config/Code",
+                           "--extensions-dir", "/home/me/.vscode/extensions", "--install-extension", extension])
 
     def apply_settings(self):
         config_file = "/home/me/.config/Code/User/settings.json"
