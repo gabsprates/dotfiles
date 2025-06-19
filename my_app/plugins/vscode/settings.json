@@ -13,7 +13,7 @@
     "polacode.target": "snippet",
     "polacode.transparentBackground": true,
 
-    "terminal.external.linuxExec": "gnome-terminal",
+    "terminal.external.linuxExec": "terminator",
     "terminal.integrated.fontFamily": "mono",
     "terminal.integrated.scrollback": 10000,
     "terminal.integrated.tabs.enabled": false,
@@ -23,7 +23,7 @@
     "window.titleBarStyle": "custom",
     "window.zoomLevel": -1,
 
-    "workbench.colorTheme": "Quiet Light",
+    "workbench.colorTheme": "Monokai",
     "workbench.panel.defaultLocation": "left",
     "workbench.sideBar.location": "right",
     "workbench.tree.indent": 16,
