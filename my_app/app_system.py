@@ -3,6 +3,8 @@ import subprocess
 import sys
 import os
 
+from pathlib import Path
+
 
 def run_as_me(cmd: list[str]):
     command = ["sudo", "-g", "me", "-u", "me"]
@@ -13,23 +15,23 @@ def run_as_me(cmd: list[str]):
 class AppInstaller:
     def install(self):
         raise NotImplementedError(
-            "Plugins must implement the 'initialize' method.")
+            "Plugins must implement the 'install' method.")
 
     def customize(self):
         raise NotImplementedError(
-            "Plugins must implement the 'execute' method.")
+            "Plugins must implement the 'customize' method.")
 
 
-class AppManager:
-    def __init__(self, plugin_dir: str, os_id: str, apps: list[str]):
-        self.app_dir = plugin_dir
+class InstallerManager:
+    def __init__(self, plugin_dir: Path, os_id: str, apps: list[str]):
+        self.plugin_dir = str(plugin_dir)
         self.os_id = os_id
         self.apps = []
         self.desired_apps = apps
 
-        sys.path.append(self.app_dir)
+        sys.path.append(self.plugin_dir)
 
-        for filename in os.listdir(self.app_dir):
+        for filename in os.listdir(self.plugin_dir):
             if not filename in self.desired_apps:
                 continue
 
