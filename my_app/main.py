@@ -47,10 +47,8 @@ if __name__ == "__main__":
     installer_manager.install_apps()
 
 
-# 'vscode',           # general
 # 'maven, ant',       # general (depends on java)
 
-# 'brave',            # general
 # 'google-chrome',    # general
 # 'gimp',             # general
 # 'gnome'             # general
