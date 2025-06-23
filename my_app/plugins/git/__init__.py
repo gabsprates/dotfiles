@@ -1,26 +1,42 @@
 import importlib
 import os
 import sys
-from app_system import AppInstaller, run_as_me
+
+from pathlib import Path
+from app_system import AppInstaller
 
 
 class GitInstaller(AppInstaller):
     def __init__(self, os_id: str):
         self.os_id = os_id
-        sys.path.append(os.path.dirname(__file__))
+        self.plugin_path = Path(__file__).parent.resolve()
 
     def install(self):
-        os_installer = importlib.import_module(f'{self.os_id}.install')
-        os_installer.install()
+        match self.os_id:
+            case 'fedora':
+                self.install_on_fedora()
+
+            case 'ubuntu':
+                self.install_on_ubuntu()
+
+            case _:
+                raise ValueError("OS not supported")
 
     def customize(self):
-        config_file = '/home/me/.gitconfig'
+        config_file_link = Path('/home/me/.gitconfig')
+        config_file_target = self.plugin_path.joinpath('.gitconfig')
 
-        if os.path.isfile(config_file):
+        if config_file_link.is_file():
             os.remove(config_file)
 
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        config_file_link.symlink_to(config_file_target)
 
-        run_as_me([
-            'ln', '-s', os.path.join(base_dir, '.gitconfig'), config_file
-        ])
+
+    def install_on_fedora(self):
+        subprocess.run(["sudo", "dnf", "copr", "enable", "atim/lazygit", "-y"])
+        subprocess.run(["sudo", "dnf", "-qy", "install", "git", "lazygit"])
+        subprocess.run(["sudo", "dnf", "-qy", "install", "git-lfs"])
+
+
+    def install_on_ubuntu(self):
+        pass
