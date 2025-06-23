@@ -22,7 +22,8 @@ def get_default_apps():
         'brave',
         'google-chrome',
         'gimp',
-        'gnome'
+        'gnome',
+        'ui',
         'inkscape',
         'flameshot',
     ]
@@ -49,7 +50,6 @@ if __name__ == "__main__":
 
 # 'maven, ant',       # general (depends on java)
 
-# 'google-chrome',    # general
 # 'gimp',             # general
 # 'gnome'             # general
 # 'inkscape',         # general
