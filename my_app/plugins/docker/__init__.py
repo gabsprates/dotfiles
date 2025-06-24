@@ -1,9 +1,8 @@
-import os
 import subprocess
-import sys
 import urllib.request
 import tempfile
 
+from pathlib import Path
 from app_system import AppInstaller
 
 
