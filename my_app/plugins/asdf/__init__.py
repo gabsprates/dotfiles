@@ -37,9 +37,9 @@ class AsdfInstaller(AppInstaller):
         urllib.request.urlretrieve(url, dest)
 
     def install_asdf(self, tar_file: Path):
-        dest = tar_file.parent.joinpath('asdf')
+        dest = tar_file.parent
 
         with tarfile.open(tar_file, 'r') as file:
-            file.extract(member='asdf')
+            file.extract(member='asdf', path=dest)
 
         subprocess.run(['sudo', 'cp', str(dest), '/usr/local/bin/'])
