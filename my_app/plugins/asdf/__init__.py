@@ -42,4 +42,4 @@ class AsdfInstaller(AppInstaller):
         with tarfile.open(tar_file, 'r') as file:
             file.extract(member='asdf', path=dest)
 
-        subprocess.run(['sudo', 'cp', str(dest), '/usr/local/bin/'])
+        subprocess.run(['sudo', 'cp', str(dest.joinpath('asdf')), '/usr/local/bin/'])
