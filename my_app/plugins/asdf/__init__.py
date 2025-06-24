@@ -3,6 +3,7 @@ import os
 import urllib.request
 import tarfile
 import tempfile
+import subprocess
 
 from pathlib import Path
 from app_system import AppInstaller
@@ -36,6 +37,9 @@ class AsdfInstaller(AppInstaller):
         urllib.request.urlretrieve(url, dest)
 
     def install_asdf(self, tar_file: Path):
-        dest = Path('/usr/local/bin/')
+        dest = tar_file.parent.joinpath(asdf)
+
         with tarfile.open(tar_file, 'r') as file:
             file.extract(member='asdf', path=dest)
+
+        subprocess.run(['sudo', 'cp', str(dest), '/usr/local/bin/'])
