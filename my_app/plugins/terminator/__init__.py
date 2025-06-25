@@ -24,9 +24,9 @@ class TerminatorInstaller(AppInstaller):
         pass
 
     def install_on_fedora(self):
-        subprocess.run(['dnf', 'install', '-y', 'terminator'])
+        subprocess.run(['sudo', 'dnf', 'install', '-y', 'terminator'])
 
     def install_on_ubuntu(self):
-        subprocess.run(['add-apt-repository', 'ppa:mattrose/terminator'])
-        subprocess.run(['apt-get', 'update'])
-        subprocess.run(['apt', 'install', '-y', 'terminator'])
+        subprocess.run(['sudo', 'add-apt-repository', 'ppa:mattrose/terminator'])
+        subprocess.run(['sudo', 'apt-get', 'update'])
+        subprocess.run(['sudo', 'apt', 'install', '-y', 'terminator'])
