@@ -10,9 +10,6 @@
 
     "files.associations": { "*.ftl": "html" },
 
-    "polacode.target": "snippet",
-    "polacode.transparentBackground": true,
-
     "terminal.external.linuxExec": "terminator",
     "terminal.integrated.fontFamily": "mono",
     "terminal.integrated.scrollback": 10000,
@@ -29,6 +26,5 @@
     "workbench.tree.indent": 16,
 
     "[java]": { "editor.defaultFormatter": "redhat.java" },
-    "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
     "[python]": { "editor.defaultFormatter": "ms-python.autopep8" }
 }
