@@ -2,11 +2,10 @@ import os
 import subprocess
 import shutil
 import tempfile
-import stat
 import urllib.request
 
 from pathlib import Path
-from app_system import AppInstaller, run_as_me
+from app_system import AppInstaller
 
 
 class ZshInstaller(AppInstaller):
@@ -37,32 +36,19 @@ class ZshInstaller(AppInstaller):
         if not local_config_file.is_file():
             shutil.copy(self.plugin_path.joinpath(
                 '.zsh_local'), local_config_file)
-            shutil.chown(local_config_file, 'me', 'me')
 
-        run_as_me([
-            'ln', '-s', self.plugin_path.joinpath('.zshrc'), config_file
-        ])
-
-        tmp_dir = tempfile.mkdtemp()
-        tmp_script = Path(tmp_dir, "install-zsh.sh")
+        config_file.symlink_to(self.plugin_path.joinpath('.zshrc'))
+        
+        tmp_script = Path(tempfile.mkdtemp(), "install-zsh.sh")
 
         urllib.request.urlretrieve(
             "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh", tmp_script)
 
-        env = os.environ.copy()
-        env["USER"] = "me"
-        env["HOME"] = user_home
-        env["CHSH"] = "no"
-        env["RUNZSH"] = "no"
-        env["KEEP_ZSHRC"] = "yes"
-
-        os.chmod(tmp_script, stat.S_IXOTH)
-        subprocess.run([tmp_script], env=env, shell=True)
-        subprocess.run(['chown', '-R', "me:me", str(omz_path)])
-        subprocess.run(['usermod', '--shell', '/usr/bin/zsh', 'me'])
+        subprocess.run(['sh', tmp_script, '--unattended', '--keep-zshrc'])
+        subprocess.run(['sudo', 'usermod', '--shell', '/usr/bin/zsh', 'me'])
 
     def install_on_fedora(self):
-        subprocess.run(['dnf', 'install', '-y', 'zsh'])
+        subprocess.run(['sudo', 'dnf', 'install', '-y', 'zsh'])
 
     def install_on_ubuntu(self):
-        subprocess.run(['apt', 'install', '-y', 'zsh'])
+        subprocess.run(['sudo', 'apt', 'install', '-y', 'zsh'])
