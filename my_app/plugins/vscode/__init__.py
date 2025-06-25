@@ -4,7 +4,7 @@ import urllib
 import urllib.request
 
 from pathlib import Path
-from app_system import AppInstaller, run_as_me
+from app_system import AppInstaller
 
 download_urls = {
     "fedora": "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64",
@@ -46,10 +46,10 @@ class VSCodeInstaller(AppInstaller):
         self.apply_shortcuts()
 
     def install_on_fedora(self, package):
-        subprocess.run(['rpm', '-i', package])
+        subprocess.run(['sudo', 'rpm', '-i', package])
 
     def install_on_ubuntu(self, package):
-        subprocess.run(['apt', 'install', package])
+        subprocess.run(['sudo', 'apt', 'install', package])
 
     def install_extensions(self):
         extensions = [
@@ -57,28 +57,17 @@ class VSCodeInstaller(AppInstaller):
             "esbenp.prettier-vscode",
             "EditorConfig.EditorConfig",
             "eamodio.gitlens",
-            "timonwong.shellcheck",
-            "foxundermoon.shell-format",
             "vscjava.vscode-java-pack",
-            "pnp.polacode",
             "ms-python.autopep8",
         ]
 
         for extension in extensions:
-            subprocess.run(["code", "--no-sandbox", "--user-data-dir", "/home/me/.config/Code",
-                           "--extensions-dir", "/home/me/.vscode/extensions", "--install-extension", extension])
+            subprocess.run(["code", "--install-extension", extension])
 
     def apply_settings(self):
-        config_file = "/home/me/.config/Code/User/settings.json"
-
-        run_as_me([
-            'ln', '-s', Path(self.plugin_path, 'settings.json'), config_file
-        ])
+        config_file = Path("/home/me/.config/Code/User/settings.json")
+        config_file.symlink_to(self.plugin_path.joinpath('settings.json'))
 
     def apply_shortcuts(self):
-        shortcuts_file = "/home/me/.config/Code/User/keybindings.json"
-
-        run_as_me([
-            'ln', '-s', Path(self.plugin_path,
-                             'shortcuts.json'), shortcuts_file
-        ])
+        shortcuts_file = Path("/home/me/.config/Code/User/keybindings.json")
+        shortcuts_file.symlink_to(self.plugin_path.joinpath('shortcuts.json'))
