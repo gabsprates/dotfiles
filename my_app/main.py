@@ -46,11 +46,3 @@ if __name__ == "__main__":
     )
 
     installer_manager.install_apps()
-
-
-# 'maven, ant',       # general (depends on java)
-
-# 'gimp',             # general
-# 'gnome'             # general
-# 'inkscape',         # general
-# 'flameshot',        # general

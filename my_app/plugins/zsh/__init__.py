@@ -38,7 +38,7 @@ class ZshInstaller(AppInstaller):
                 '.zsh_local'), local_config_file)
 
         config_file.symlink_to(self.plugin_path.joinpath('.zshrc'))
-        
+
         tmp_script = Path(tempfile.mkdtemp(), "install-zsh.sh")
 
         urllib.request.urlretrieve(

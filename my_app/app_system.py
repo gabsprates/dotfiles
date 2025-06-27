@@ -1,15 +1,8 @@
 import importlib
-import subprocess
 import sys
 import os
 
 from pathlib import Path
-
-
-def run_as_me(cmd: list[str]):
-    command = ["sudo", "-g", "me", "-u", "me"]
-    command.extend(cmd)
-    subprocess.run(cmd, user='me', group='me')
 
 
 class AppInstaller:

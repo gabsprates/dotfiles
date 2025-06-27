@@ -1,7 +1,5 @@
-import importlib
 import os
 import subprocess
-import sys
 
 from pathlib import Path
 from app_system import AppInstaller
@@ -28,16 +26,14 @@ class GitInstaller(AppInstaller):
         config_file_target = self.plugin_path.joinpath('.gitconfig')
 
         if config_file_link.is_file():
-            os.remove(config_file)
+            os.remove(config_file_link)
 
         config_file_link.symlink_to(config_file_target)
-
 
     def install_on_fedora(self):
         subprocess.run(["sudo", "dnf", "copr", "enable", "atim/lazygit", "-y"])
         subprocess.run(["sudo", "dnf", "-qy", "install", "git", "lazygit"])
         subprocess.run(["sudo", "dnf", "-qy", "install", "git-lfs"])
-
 
     def install_on_ubuntu(self):
         pass
