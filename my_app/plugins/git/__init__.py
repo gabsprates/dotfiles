@@ -36,4 +36,5 @@ class GitInstaller(AppInstaller):
         subprocess.run(["sudo", "dnf", "-qy", "install", "git-lfs"])
 
     def install_on_ubuntu(self):
-        pass
+        subprocess.run(["sudo", "apt", "-qy", "install", "build-essential", "git", "lazygit"])
+        subprocess.run(["curl", "-s", "https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh", "|", "sudo", "bash"])
