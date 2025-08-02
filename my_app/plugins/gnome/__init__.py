@@ -23,8 +23,8 @@ class GnomeInstaller(AppInstaller):
 
     def install_on_fedora(self):
         subprocess.run(['sudo', 'dnf', 'install', '-y',
-                       'gnome-tweaks', 'gnome-clocks'])
+                       'gnome-tweaks', 'gnome-clocks', 'gnome-text-editor'])
 
     def install_on_ubuntu(self):
         subprocess.run(['sudo', 'apt', 'install', '-y',
-                       'gnome-tweaks', 'gnome-clocks'])
+                       'gnome-tweaks', 'gnome-clocks', 'gnome-text-editor'])
