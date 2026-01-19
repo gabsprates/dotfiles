@@ -68,6 +68,6 @@ class GitInstaller(AppInstaller):
 
     def get_lazygit_linux_package_url(self, data):
         for asset in data['assets']:
-            if asset['browser_download_url'].endswith("_Linux_x86_64.tar.gz"):
+            if asset['browser_download_url'].lower().endswith("_linux_x86_64.tar.gz"):
                 return asset['browser_download_url']
 
