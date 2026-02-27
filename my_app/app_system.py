@@ -10,6 +10,10 @@ class AppInstaller:
     Interface to be implemented for each app that should be installed.
     """
 
+    def __init__(self, os_id: str):
+        raise NotImplementedError(
+            "Plugins must implement the '__init__' method.")
+
     def install(self):
         """
         Method that executes any sudo actions, as instaling packages.
