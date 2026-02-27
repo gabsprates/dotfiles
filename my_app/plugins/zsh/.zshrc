@@ -24,6 +24,7 @@ fi
 
 ## [BEGIN] Aliases
 alias ll='ls -lah'
+alias goto-new-temp="cd $(mktemp -d)"
 ## [END] Aliases
 
 ## [BEGIN] PATH

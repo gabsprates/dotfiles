@@ -26,7 +26,6 @@ class ZshInstaller(AppInstaller):
 
     def customize(self):
         user_home = Path('/', 'home', 'me')
-        omz_path = user_home.joinpath('.oh-my-zsh')
         config_file = user_home.joinpath(".zshrc")
         local_config_file = user_home.joinpath(".zsh_local")
 
