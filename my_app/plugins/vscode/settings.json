@@ -7,6 +7,7 @@
     "editor.lineHeight": 1.5,
     "editor.minimap.renderCharacters": false,
     "editor.stickyScroll.enabled": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
 
     "files.associations": { "*.ftl": "html" },
 
@@ -25,6 +26,5 @@
     "workbench.sideBar.location": "right",
     "workbench.tree.indent": 16,
 
-    "[java]": { "editor.defaultFormatter": "redhat.java" },
     "[python]": { "editor.defaultFormatter": "ms-python.autopep8" }
 }

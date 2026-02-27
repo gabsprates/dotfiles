@@ -57,7 +57,6 @@ class VSCodeInstaller(AppInstaller):
             "esbenp.prettier-vscode",
             "EditorConfig.EditorConfig",
             "eamodio.gitlens",
-            "vscjava.vscode-java-pack",
             "ms-python.autopep8",
         ]
 
