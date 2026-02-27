@@ -5,7 +5,11 @@
   [[default]]
     background_darkness = 0.85
     background_type = transparent
+    font = Ubuntu Sans Mono 10
+    show_titlebar = False
     scrollback_infinite = True
+    use_system_font = False
+    use_theme_colors = True
 [layouts]
   [[default]]
     [[[window0]]]
