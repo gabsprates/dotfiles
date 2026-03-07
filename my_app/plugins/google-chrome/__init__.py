@@ -2,8 +2,8 @@ import subprocess
 import tempfile
 import urllib.request
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 download_urls = {
     "fedora": "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm",

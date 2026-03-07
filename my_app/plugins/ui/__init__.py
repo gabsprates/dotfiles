@@ -1,7 +1,7 @@
 import subprocess
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class UIInstaller(AppInstaller):

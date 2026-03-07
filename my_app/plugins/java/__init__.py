@@ -1,7 +1,7 @@
 import subprocess
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class JavaInstaller(AppInstaller):
@@ -9,7 +9,8 @@ class JavaInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        subprocess.run(['asdf', 'plugin', 'add', 'java', 'https://github.com/halcyon/asdf-java.git'])
+        subprocess.run(['asdf', 'plugin', 'add', 'java',
+                       'https://github.com/halcyon/asdf-java.git'])
         subprocess.run(['asdf', 'install', 'java', 'latest:zulu-21'])
         subprocess.run(['asdf', 'set', '-u', 'java', 'latest:zulu-21'])
 

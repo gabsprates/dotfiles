@@ -5,8 +5,8 @@ import urllib.request
 import tarfile
 import tempfile
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class GitInstaller(AppInstaller):
@@ -26,13 +26,10 @@ class GitInstaller(AppInstaller):
                 raise ValueError("OS not supported")
 
     def customize(self):
-        config_file_link = Path('/home/me/.gitconfig')
-        config_file_target = self.plugin_path.joinpath('.gitconfig')
-
-        if config_file_link.is_file():
-            os.remove(config_file_link)
-
-        config_file_link.symlink_to(config_file_target)
+        AppInstaller.create_symlink(
+            link=Path('/home/me/.gitconfig'),
+            target=self.plugin_path.joinpath('.gitconfig')
+        )
 
     def install_on_fedora(self):
         subprocess.run(["sudo", "dnf", "copr", "enable", "atim/lazygit", "-y"])
@@ -40,8 +37,10 @@ class GitInstaller(AppInstaller):
         subprocess.run(["sudo", "dnf", "-qy", "install", "git-lfs"])
 
     def install_on_ubuntu(self):
-        subprocess.run(["sudo", "apt", "-qy", "install", "build-essential", "git"])
-        subprocess.run(["curl", "-s", "https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh", "|", "sudo", "bash"])
+        subprocess.run(["sudo", "apt", "-qy", "install",
+                       "build-essential", "git"])
+        subprocess.run(
+            ["curl", "-s", "https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh", "|", "sudo", "bash"])
         subprocess.run(["sudo", "apt-get", "install", "-qy", "git-lfs"])
 
         self.install_lazygit()
@@ -56,12 +55,14 @@ class GitInstaller(AppInstaller):
             json_data = json.loads(response.read().decode())
             lazygit_package_url = self.get_lazygit_linux_package_url(json_data)
 
-        self.download_lazygit_linux_package(lazygit_package_url, lazygit_package_file)
+        self.download_lazygit_linux_package(
+            lazygit_package_url, lazygit_package_file)
 
         with tarfile.open(lazygit_package_file, 'r') as file:
             file.extract(member='lazygit', path=lazygit_tmp)
 
-        subprocess.run(['sudo', 'cp', str(lazygit_tmp.joinpath("lazygit")), '/usr/local/bin/'])
+        subprocess.run(
+            ['sudo', 'cp', str(lazygit_tmp.joinpath("lazygit")), '/usr/local/bin/'])
 
     def download_lazygit_linux_package(self, url: str, lazygit_dest: Path):
         urllib.request.urlretrieve(url, lazygit_dest)
@@ -70,4 +71,3 @@ class GitInstaller(AppInstaller):
         for asset in data['assets']:
             if asset['browser_download_url'].lower().endswith("_linux_x86_64.tar.gz"):
                 return asset['browser_download_url']
-

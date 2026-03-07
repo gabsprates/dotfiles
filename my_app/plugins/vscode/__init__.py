@@ -3,8 +3,8 @@ import tempfile
 import urllib
 import urllib.request
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 download_urls = {
     "fedora": "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64",
@@ -64,9 +64,13 @@ class VSCodeInstaller(AppInstaller):
             subprocess.run(["code", "--install-extension", extension])
 
     def apply_settings(self):
-        config_file = Path("/home/me/.config/Code/User/settings.json")
-        config_file.symlink_to(self.plugin_path.joinpath('settings.json'))
+        AppInstaller.create_symlink(
+            link=Path("/home/me/.config/Code/User/settings.json"),
+            target=self.plugin_path.joinpath('settings.json')
+        )
 
     def apply_shortcuts(self):
-        shortcuts_file = Path("/home/me/.config/Code/User/keybindings.json")
-        shortcuts_file.symlink_to(self.plugin_path.joinpath('shortcuts.json'))
+        AppInstaller.create_symlink(
+            link=Path("/home/me/.config/Code/User/keybindings.json"),
+            target=self.plugin_path.joinpath('shortcuts.json')
+        )

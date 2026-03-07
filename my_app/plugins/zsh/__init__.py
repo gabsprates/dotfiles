@@ -4,8 +4,8 @@ import shutil
 import tempfile
 import urllib.request
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class ZshInstaller(AppInstaller):
@@ -26,17 +26,16 @@ class ZshInstaller(AppInstaller):
 
     def customize(self):
         user_home = Path('/', 'home', 'me')
-        config_file = user_home.joinpath(".zshrc")
         local_config_file = user_home.joinpath(".zsh_local")
-
-        if config_file.is_file():
-            os.remove(config_file)
 
         if not local_config_file.is_file():
             shutil.copy(self.plugin_path.joinpath(
                 '.zsh_local'), local_config_file)
 
-        config_file.symlink_to(self.plugin_path.joinpath('.zshrc'))
+        AppInstaller.create_symlink(
+            link=user_home.joinpath(".zshrc"),
+            target=self.plugin_path.joinpath('.zshrc')
+        )
 
         tmp_script = Path(tempfile.mkdtemp(), "install-zsh.sh")
 

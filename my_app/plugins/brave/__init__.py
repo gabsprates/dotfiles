@@ -2,8 +2,8 @@ import subprocess
 import urllib.request
 import tempfile
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class BraveInstaller(AppInstaller):

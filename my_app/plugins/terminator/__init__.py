@@ -1,8 +1,7 @@
-import os
 import subprocess
 
+from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
-from app_system import AppInstaller
 
 
 class TerminatorInstaller(AppInstaller):
@@ -22,13 +21,10 @@ class TerminatorInstaller(AppInstaller):
                 raise ValueError("OS not supported")
 
     def customize(self):
-        config_file_link = Path('/home/me/.config/terminator/config')
-        config_file_target = self.plugin_path.joinpath('profile')
-
-        if config_file_link.is_file():
-            os.remove(config_file_link)
-
-        config_file_link.symlink_to(config_file_target)
+        AppInstaller.create_symlink(
+            link=Path('/home/me/.config/terminator/config'),
+            target=self.plugin_path.joinpath('profile')
+        )
 
         pass
 

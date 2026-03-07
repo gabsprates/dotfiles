@@ -1,6 +1,6 @@
 import subprocess
 
-from app_system import AppInstaller
+from dotfiles_toolkit.app_installer import AppInstaller
 
 
 class InkscapeInstaller(AppInstaller):
