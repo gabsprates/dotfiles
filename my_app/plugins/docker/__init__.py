@@ -1,9 +1,7 @@
 import subprocess
 import urllib.request
-import tempfile
 
 from dotfiles_toolkit.app_installer import AppInstaller
-from pathlib import Path
 
 
 class DockerInstaller(AppInstaller):
@@ -11,7 +9,7 @@ class DockerInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        tmp_script = Path(tempfile.mkdtemp()).joinpath("install-docker.sh")
+        tmp_script = AppInstaller.create_temp_path("install-docker.sh")
 
         urllib.request.urlretrieve("https://get.docker.com", tmp_script)
 

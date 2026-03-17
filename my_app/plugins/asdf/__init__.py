@@ -1,7 +1,6 @@
 import json
 import urllib.request
 import tarfile
-import tempfile
 import subprocess
 
 from dotfiles_toolkit.app_installer import AppInstaller
@@ -13,7 +12,7 @@ class AsdfInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        asdf_tmp = Path(tempfile.mkdtemp()).joinpath("asdf.tar.gz")
+        asdf_tmp = AppInstaller.create_temp_path("asdf.tar.gz")
         asdf_package_url = self.get_asdf_linux_package_url()
 
         self.download_asdf_linux_package(asdf_package_url, asdf_tmp)

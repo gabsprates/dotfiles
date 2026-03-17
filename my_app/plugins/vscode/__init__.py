@@ -1,5 +1,4 @@
 import subprocess
-import tempfile
 import urllib
 import urllib.request
 
@@ -25,8 +24,8 @@ class VSCodeInstaller(AppInstaller):
         self.package_type = package_types[os_id]
 
     def install(self):
-        tmp_package = Path(
-            tempfile.mkdtemp(), "install-vscode." + self.package_type)
+        tmp_package = AppInstaller.create_temp_path(
+            "install-vscode." + self.package_type)
 
         urllib.request.urlretrieve(self.download_url, tmp_package)
 

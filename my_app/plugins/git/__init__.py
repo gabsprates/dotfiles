@@ -1,9 +1,7 @@
-import os
 import json
 import subprocess
 import urllib.request
 import tarfile
-import tempfile
 
 from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
@@ -46,7 +44,7 @@ class GitInstaller(AppInstaller):
         self.install_lazygit()
 
     def install_lazygit(self):
-        lazygit_tmp = Path(tempfile.mkdtemp())
+        lazygit_tmp = AppInstaller.create_temp_path()
         lazygit_package_file = lazygit_tmp.joinpath("lazygit.tar.gz")
         lazygit_package_url = ""
         lazygit_releases_url = "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"

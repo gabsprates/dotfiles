@@ -1,7 +1,5 @@
-import os
 import subprocess
 import shutil
-import tempfile
 import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
@@ -37,7 +35,7 @@ class ZshInstaller(AppInstaller):
             target=self.plugin_path.joinpath('.zshrc')
         )
 
-        tmp_script = Path(tempfile.mkdtemp(), "install-zsh.sh")
+        tmp_script = AppInstaller.create_temp_path("install-zsh.sh")
 
         urllib.request.urlretrieve(
             "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh", tmp_script)

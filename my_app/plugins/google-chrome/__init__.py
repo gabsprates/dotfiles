@@ -1,9 +1,7 @@
 import subprocess
-import tempfile
 import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
-from pathlib import Path
 
 download_urls = {
     "fedora": "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm",
@@ -23,8 +21,8 @@ class GoogleChromeInstaller(AppInstaller):
         self.package_type = package_types[os_id]
 
     def install(self):
-        tmp_package = Path(
-            tempfile.mkdtemp(), "install-google-chrome." + self.package_type)
+        tmp_package = AppInstaller.create_temp_path(
+            "install-google-chrome." + self.package_type)
 
         urllib.request.urlretrieve(self.download_url, tmp_package)
 
