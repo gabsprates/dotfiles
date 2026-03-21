@@ -13,26 +13,19 @@ class AsdfInstaller(AppInstaller):
 
     def install(self):
         asdf_tmp = AppInstaller.create_temp_path("asdf.tar.gz")
-        asdf_package_url = self.get_asdf_linux_package_url()
 
-        self.download_asdf_linux_package(asdf_package_url, asdf_tmp)
+        asdf_package_url = AppInstaller.get_asset_url_from_github(
+            owner="asdf-vm",
+            repo="asdf",
+            filter=lambda url: url.lower().endswith("-linux-386.tar.gz"),
+        )
+
+        urllib.request.urlretrieve(asdf_package_url, asdf_tmp)
+
         self.install_asdf(asdf_tmp)
 
     def customize(self):
         pass
-
-    def get_asdf_linux_package_url(self):
-        asdf_releases_url = "https://api.github.com/repos/asdf-vm/asdf/releases/latest"
-
-        with urllib.request.urlopen(asdf_releases_url) as response:
-            json_data = json.loads(response.read().decode())
-
-            for asset in json_data['assets']:
-                if asset['browser_download_url'].endswith("-linux-386.tar.gz"):
-                    return asset['browser_download_url']
-
-    def download_asdf_linux_package(self, url: str, dest: Path):
-        urllib.request.urlretrieve(url, dest)
 
     def install_asdf(self, tar_file: Path):
         dest = tar_file.parent

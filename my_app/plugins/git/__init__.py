@@ -46,14 +46,14 @@ class GitInstaller(AppInstaller):
     def install_lazygit(self):
         lazygit_tmp = AppInstaller.create_temp_path()
         lazygit_package_file = lazygit_tmp.joinpath("lazygit.tar.gz")
-        lazygit_package_url = ""
-        lazygit_releases_url = "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"
 
-        with urllib.request.urlopen(lazygit_releases_url) as response:
-            json_data = json.loads(response.read().decode())
-            lazygit_package_url = self.get_lazygit_linux_package_url(json_data)
+        lazygit_package_url = AppInstaller.get_asset_url_from_github(
+            owner="jesseduffield",
+            repo="lazygit",
+            filter=lambda url: url.lower().endswith("_linux_x86_64.tar.gz"),
+        )
 
-        self.download_lazygit_linux_package(
+        urllib.request.urlretrieve(
             lazygit_package_url, lazygit_package_file)
 
         with tarfile.open(lazygit_package_file, 'r') as file:
@@ -61,9 +61,6 @@ class GitInstaller(AppInstaller):
 
         subprocess.run(
             ['sudo', 'cp', str(lazygit_tmp.joinpath("lazygit")), '/usr/local/bin/'])
-
-    def download_lazygit_linux_package(self, url: str, lazygit_dest: Path):
-        urllib.request.urlretrieve(url, lazygit_dest)
 
     def get_lazygit_linux_package_url(self, data):
         for asset in data['assets']:
