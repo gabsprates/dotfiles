@@ -1,6 +1,4 @@
 import subprocess
-import urllib
-import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
@@ -24,10 +22,10 @@ class VSCodeInstaller(AppInstaller):
         self.package_type = package_types[os_id]
 
     def install(self):
-        tmp_package = AppInstaller.create_temp_path(
-            "install-vscode." + self.package_type)
-
-        urllib.request.urlretrieve(self.download_url, tmp_package)
+        tmp_package = AppInstaller.download(
+            self.download_url,
+            "install-vscode." + self.package_type,
+        )
 
         match self.os_id:
             case 'fedora':

@@ -1,5 +1,4 @@
 import subprocess
-import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
 
@@ -11,8 +10,8 @@ class BraveInstaller(AppInstaller):
     def install(self):
         tmp_install = AppInstaller.create_temp_path("install-brave.sh")
 
-        urllib.request.urlretrieve(
-            'https://dl.brave.com/install.sh', tmp_install)
+        tmp_install = AppInstaller.download(
+            "https://dl.brave.com/install.sh", "install-brave.sh")
 
         subprocess.run(['sh', tmp_install])
 

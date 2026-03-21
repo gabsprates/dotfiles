@@ -1,6 +1,5 @@
 import subprocess
 import shutil
-import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
 from pathlib import Path
@@ -35,10 +34,10 @@ class ZshInstaller(AppInstaller):
             target=self.plugin_path.joinpath('.zshrc')
         )
 
-        tmp_script = AppInstaller.create_temp_path("install-zsh.sh")
-
-        urllib.request.urlretrieve(
-            "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh", tmp_script)
+        tmp_script = AppInstaller.download(
+            "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh",
+            "install-zsh.sh",
+        )
 
         subprocess.run(['sh', tmp_script, '--unattended', '--keep-zshrc'])
         subprocess.run(['sudo', 'usermod', '--shell', '/usr/bin/zsh', 'me'])

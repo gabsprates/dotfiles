@@ -1,6 +1,4 @@
-import json
 import subprocess
-import urllib.request
 import tarfile
 
 from dotfiles_toolkit.app_installer import AppInstaller
@@ -44,25 +42,19 @@ class GitInstaller(AppInstaller):
         self.install_lazygit()
 
     def install_lazygit(self):
-        lazygit_tmp = AppInstaller.create_temp_path()
-        lazygit_package_file = lazygit_tmp.joinpath("lazygit.tar.gz")
-
         lazygit_package_url = AppInstaller.get_asset_url_from_github(
             owner="jesseduffield",
             repo="lazygit",
             filter=lambda url: url.lower().endswith("_linux_x86_64.tar.gz"),
         )
 
-        urllib.request.urlretrieve(
-            lazygit_package_url, lazygit_package_file)
+        lazygit_package_file = AppInstaller.download(
+            lazygit_package_url, "lazygit.tar.gz")
+
+        lazygit_tmp = lazygit_package_file.parent
 
         with tarfile.open(lazygit_package_file, 'r') as file:
             file.extract(member='lazygit', path=lazygit_tmp)
 
         subprocess.run(
             ['sudo', 'cp', str(lazygit_tmp.joinpath("lazygit")), '/usr/local/bin/'])
-
-    def get_lazygit_linux_package_url(self, data):
-        for asset in data['assets']:
-            if asset['browser_download_url'].lower().endswith("_linux_x86_64.tar.gz"):
-                return asset['browser_download_url']

@@ -1,5 +1,4 @@
 import subprocess
-import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
 
@@ -9,9 +8,8 @@ class DockerInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        tmp_script = AppInstaller.create_temp_path("install-docker.sh")
-
-        urllib.request.urlretrieve("https://get.docker.com", tmp_script)
+        tmp_script = AppInstaller.download(
+            "https://get.docker.com", "install-docker.sh")
 
         subprocess.run(["sudo", "sh", tmp_script])
         subprocess.run(["sudo", "systemctl", "start", "docker"])

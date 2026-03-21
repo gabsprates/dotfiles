@@ -1,5 +1,4 @@
 import subprocess
-import urllib.request
 
 from dotfiles_toolkit.app_installer import AppInstaller
 
@@ -21,10 +20,10 @@ class GoogleChromeInstaller(AppInstaller):
         self.package_type = package_types[os_id]
 
     def install(self):
-        tmp_package = AppInstaller.create_temp_path(
-            "install-google-chrome." + self.package_type)
-
-        urllib.request.urlretrieve(self.download_url, tmp_package)
+        tmp_package = AppInstaller.download(
+            self.download_url,
+            "install-google-chrome." + self.package_type
+        )
 
         match self.os_id:
             case 'fedora':

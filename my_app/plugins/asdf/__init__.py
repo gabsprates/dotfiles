@@ -1,5 +1,3 @@
-import json
-import urllib.request
 import tarfile
 import subprocess
 
@@ -12,15 +10,13 @@ class AsdfInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        asdf_tmp = AppInstaller.create_temp_path("asdf.tar.gz")
-
         asdf_package_url = AppInstaller.get_asset_url_from_github(
             owner="asdf-vm",
             repo="asdf",
             filter=lambda url: url.lower().endswith("-linux-386.tar.gz"),
         )
 
-        urllib.request.urlretrieve(asdf_package_url, asdf_tmp)
+        asdf_tmp = AppInstaller.download(asdf_package_url, "asdf.tar.gz")
 
         self.install_asdf(asdf_tmp)
 
