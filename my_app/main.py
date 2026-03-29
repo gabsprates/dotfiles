@@ -3,8 +3,8 @@
 import distro
 import argparse
 
+from dotfiles_toolkit.install_manager import InstallManager
 from pathlib import Path
-from app_system import InstallerManager
 
 
 def get_default_apps():
@@ -39,10 +39,12 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    installer_manager = InstallerManager(
-        plugin_dir=base_path.joinpath("plugins").resolve(),
-        os_id=distro.id(),
-        apps=args.apps
+    install_manager = InstallManager(
+        apps_path=base_path.joinpath("plugins").resolve(),
+        distro=distro.id(),
     )
 
-    installer_manager.install_apps()
+    for app in args.apps:
+        install_manager.register(app)
+
+    install_manager.install_apps()

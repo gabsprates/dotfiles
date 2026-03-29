@@ -8,8 +8,6 @@ class BraveInstaller(AppInstaller):
         self.os_id = os_id
 
     def install(self):
-        tmp_install = AppInstaller.create_temp_path("install-brave.sh")
-
         tmp_install = AppInstaller.download(
             "https://dl.brave.com/install.sh", "install-brave.sh")
 
